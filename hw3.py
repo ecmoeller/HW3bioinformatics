@@ -22,6 +22,8 @@ def main():
     with open('Human_PPI.csv','r') as f:
         data = f.readlines()
 
+    with open("Lit_degrees.csv", "r") as f2:
+        data2 = f2.readlines()
 
     count = 0
     pairs = []
@@ -36,6 +38,19 @@ def main():
 
         count += 1
 
+    count = 0
+    degrees = {}
+    for line in data2:
+        line = line.strip()
+        if (count == 0):
+            print("did nothing")
+        if(count >= 1 ):
+            degreeLine = line.split('\t')
+            degrees[degreeLine[0]] = degreeLine[1]
+
+        count += 1
+
+    print("First line ", degrees["A1CF"])
 
 if __name__ == '__main__':
     main()
