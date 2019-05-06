@@ -16,6 +16,31 @@ class Pair:
         self.proteinB = proteinB  
 
 
+def q2(pairs):
+    # Measure the degree of each protein with at least 1 interaction in the network (exclude selfinteractions)
+    degs = {}
+
+    for p in pairs:
+
+        #exclude self interactions
+        if(p.proteinA != p.proteinB):
+            #Increment proteinA count in degs if found, otherwise add it
+            if (p.proteinA not in degs):
+                degs[p.proteinA] = 1
+            else:
+                degs[p.proteinA] = degs[p.proteinA] + 1
+
+            #Increment proteinB count in degs if found, otherwise add it
+            if (p.proteinB not in degs):
+                degs[p.proteinB] = 1
+            else:
+                degs[p.proteinB] = degs[p.proteinB] + 1        
+
+    for k, v in degs.items():
+        print(k, v)
+
+    # Plot the degree distribution of the protein-protein interaction network (a histogram is fine)
+
 def main():
     print("In main")
     #Reading in data from txt file
@@ -51,6 +76,8 @@ def main():
         count += 1
 
     print("First line ", degrees["A1CF"])
+
+    q2(pairs)
 
 if __name__ == '__main__':
     main()
