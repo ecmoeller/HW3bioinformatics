@@ -62,8 +62,8 @@ def q2(pairs):
     plt.xlabel("Degree Count")
     plt.ylabel("Frequency")
 
-    #plotly_fig = tls.mpl_to_plotly( fig )
-    #py.plot(plotly_fig, filename='all_probe_data_before_log')
+    plotly_fig = tls.mpl_to_plotly( fig )
+    py.plot(plotly_fig, filename='all_probe_data_before_log')
 
 
     #finding highest degree protein
@@ -305,7 +305,7 @@ def main():
     coeffs = q3b(degs, neighbors)
 
     #Graph clustering coefficients and degrees
-    #q3graph(degs, coeffs, "Degree of Interaction and Clustering Coefficient for all Proteins")
+    q3graph(degs, coeffs, "Degree of Interaction and Clustering Coefficient for all Proteins")
 
     #Pearson Coefficient 
     pearsonCo = q4a(degrees, degs)
